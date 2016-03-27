@@ -1,0 +1,19 @@
+<div class="container">
+  <div ng-if='$ctrl.mode === "new"'>
+    <user-card mode='edit' user='user'></user-card>
+  </div>
+  <div ng-if='$ctrl.mode === "list"'>
+      <div class="row">
+    <div class="col-md-6">
+      <div class="btn-group">
+        <button ng-click='$ctrl.setMode("new")' class='btn btn-success'>Add new contact</button>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <user-card ng-repeat='user in $ctrl.users' user='user' mode='presentation'></user-card>
+    </div>
+  </div>
+</div>
+  </div>

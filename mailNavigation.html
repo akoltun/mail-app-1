@@ -1,0 +1,6 @@
+<button class="btn btn-block btn-warning" ui-sref-active="hidden" ui-sref="compose">Compose</button>
+<ul class="nav nav-pills nav-stacked">
+  <li ng-repeat='box in $ctrl.boxes' ui-sref-active="active">
+    <a ui-sref="box({boxId: box.id})">{{box.title}}</a>
+  </li>
+</ul>

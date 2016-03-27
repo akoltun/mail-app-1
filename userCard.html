@@ -1,0 +1,60 @@
+<div class="panel panel-info" ng-form='usercard'>
+  <div class="panel-heading">
+    <button ng-if='$ctrl.mode == "presentation"' class='btn btn-link glyphicon glyphicon-pencil' ng-click='$ctrl.startEdition()'></button>
+    <button ng-if='usercard.$valid && $ctrl.mode == "edit"' class='btn btn-link glyphicon glyphicon-ok' ng-click='$ctrl.save()'></button>
+    <button ng-if='$ctrl.mode == "edit"' class='btn btn-link glyphicon glyphicon-floppy-remove' ng-click='$ctrl.stopEdition()'></button>
+    <button ng-if='$ctrl.mode == "presentation"' class='btn btn-link glyphicon glyphicon-remove' ng-click='$ctrl.remove()'></button>
+    <h3 ng-if='$ctrl.mode == "presentation"' class="panel-title">{{$ctrl.user.fullName}}</h3>
+    <div ng-if='$ctrl.mode == "edit"' class='form-group' ng-class='{"has-error": !usercard.fullName.$valid}'>Введите имя:
+      <input class='form-control' ng-model='$ctrl.userDraft.fullName' name='fullName' type="text" required>
+      <label ng-messages='usercard.fullName.$error'>
+        <span ng-message='required'>Field is mantodory</span>
+      </label>
+    </div>
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class=" col-md-9 col-lg-9 ">
+        <table class="table table-user-information">
+          <tbody>
+            <tr>
+              <td>Дата рождения</td>
+              <td>
+                <div ng-if='$ctrl.mode == "presentation"'>{{$ctrl.user.birthdate}}</div>
+                <div class='form-group' ng-class='{"has-error": !usercard.birthdate.$valid}'>
+                  <input class='form-control' ng-if='$ctrl.mode == "edit"' ng-model='$ctrl.userDraft.birthdate' type="date" name='birthdate'>
+                  <label ng-messages='usercard.birthdate.$error'>
+                    <span ng-message='date'>Value have to be valid date</span>
+                  </label>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>Адрес</td>
+              <td>
+                <div ng-if='$ctrl.mode == "presentation"'>{{$ctrl.user.address}}</div>
+                <div class='form-group'>
+                  <input class='form-control' ng-if='$ctrl.mode == "edit"' ng-model='$ctrl.userDraft.address' type="text">
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>Email</td>
+              <td>
+                <div ng-if='$ctrl.mode == "presentation"'>
+                  <a href="mailto:{{$ctrl.user.email}}">{{$ctrl.user.email}}</a>
+                </div>
+                <div class='form-group' ng-class='{"has-error": !usercard.email.$valid}'>
+                  <input class='form-control' ng-if='$ctrl.mode == "edit"' ng-model='$ctrl.userDraft.email' type="email" required name='email'>
+                  <label ng-messages='usercard.email.$error'>
+                    <span ng-message='required'>Field is mantodory</span>
+                    <span ng-message='email'>Value have to be valid email</span>
+                  </label>
+                </div>
+              </td>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
