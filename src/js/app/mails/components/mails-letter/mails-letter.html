@@ -1,0 +1,51 @@
+<p>
+  <button type="button" class="btn btn-danger btn-sm" ng-click="$ctrl.delete()">Delete</button>
+  <button
+    ng-if="$ctrl.mail.type == 'inbox' && !$ctrl.mail.spam"
+    type="button" class="btn btn-warning btn-sm" ng-click="$ctrl.moveToSpam()">Spam!</button>
+  <button
+    ng-if="$ctrl.mail.type == 'inbox' && $ctrl.mail.spam"
+    type="button" class="btn btn-warning btn-sm" ng-click="$ctrl.moveFromSpam()">Not spam</button>
+  <button
+    ng-if="$ctrl.mail.bin"
+    type="button" class="btn btn-warning btn-sm" ng-click="$ctrl.restoreFromBin()">Restore</button>
+</p>
+<mails-star ng-if="$ctrl.mail" mail="$ctrl.mail"></mails-star>
+<div class="input-group">
+  <span class="input-group-addon">
+    <span ng-if="$ctrl.mail.type == 'inbox'">From</span>
+    <span ng-if="$ctrl.mail.type == 'sent'">To</span>
+  </span>
+  <input name="email"
+         disabled
+         ng-model="$ctrl.mail.email"
+         type="email"
+         class="form-control"
+         placeholder="Address"
+         required>
+</div>
+<br>
+<div class="input-group">
+  <span class="input-group-addon">Subject</span>
+  <input name="subject"
+         disabled
+         ng-model="$ctrl.mail.subject"
+         type="text"
+         class="form-control"
+         placeholder="Subject"
+         required>
+</div>
+<br>
+<label class="text-danger" ng-messages='mail.message.$error'>
+  <span ng-message='required'>Field is mantodory</span>
+</label>
+<div class='form-group'>
+  <textarea name="message"
+            disabled
+            ng-model="$ctrl.mail.message"
+            placeholder="some text"
+            class="form-control"
+            rows="3"
+            required>
+  </textarea>
+</div>

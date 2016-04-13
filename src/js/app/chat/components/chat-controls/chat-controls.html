@@ -1,0 +1,13 @@
+<div class="form-group">
+  <input placeholder='Enter your message'
+         class="form-control"
+         ng-keyup="$event.keyCode == 13 && $ctrl.sendMessage()"
+         ng-model='$ctrl.messageText'
+         type='text'>
+  <br>
+  <div class="text-right">
+    <button ng-click='$ctrl.sendMessage()' type="button" class="btn btn-primary"
+            ng-disabled='!$ctrl.messageText'>Submit
+    </button>
+  </div>
+</div>

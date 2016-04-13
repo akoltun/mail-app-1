@@ -1,0 +1,16 @@
+.application-main-menu button,.application-main-menu button:active,.application-main-menu button:hover,.application-main-menu button:focus {
+    color: #dd4b39;
+    padding: 0 7px;
+    font-size: 14pt;
+    line-height: 29px;
+    text-decoration: none;
+}
+
+.application-main-menu a{
+    text-align: center;
+}
+
+.application-main-menu .active a{
+    color: #dd4b39 !important;
+    background: none !important;
+}

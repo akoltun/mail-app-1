@@ -1,0 +1,24 @@
+<header class="contacts-page-header">
+  <h1 class="contacts-page-header__title">Contacts</h1>
+</header>
+<div class="container">
+  <div class="text-left">
+    <button ng-click='$ctrl.setMode("new")'
+            ng-disabled='$ctrl.mode === "new"'
+            class='btn btn-success btn-lg'>
+      Add new contact
+    </button>
+    <br><br>
+  </div>
+  <div class="panel-group">
+    <contacts-user-card ng-if='$ctrl.mode === "new"'
+                        mode='edit'
+                        user='user'>
+    </contacts-user-card>
+    <contacts-user-card ng-if='$ctrl.mode === "list"'
+                        ng-repeat='user in $ctrl.users'
+                        user='user'
+                        mode='presentation'>
+    </contacts-user-card>
+  </div>
+</div>

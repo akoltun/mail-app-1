@@ -1,0 +1,44 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h4 class="panel-title"><div href="javascript:;" class="collapsed"> {{$ctrl.user.fullName}} </div></h4>
+  </div>
+  <div class="panel-collapse collapse in">
+    <div class="panel-body" ng-if='$ctrl.mode == "presentation"'>
+      <address>
+        <strong>Email</strong><br>
+        <div>{{$ctrl.user.email}}</div>
+      </address>
+      <address>
+        <strong>Address</strong><br>
+        {{$ctrl.user.address}}
+      </address>
+      <button ng-click='$ctrl.startEdition()' class="btn btn-default">Edit</button>
+      <button ng-click='$ctrl.remove()' class="btn btn-default">Delete</button>
+    </div>
+    <div class="panel-body" ng-if='$ctrl.mode == "edit"'>
+      <form name="usercard">
+        <div class="form-group" ng-class='{"has-error": !usercard.fullName.$valid && usercard.fullName.$dirty}'>
+          <label>Name</label>
+          <input class='form-control' ng-model='$ctrl.userDraft.fullName' name='fullName' type="text" required>
+          <label ng-messages='usercard.fullName.$error'>
+            <span ng-message='required'>Field is mantodory</span>
+          </label>
+        </div>
+        <div class="form-group" ng-class='{"has-error": !usercard.email.$valid && usercard.email.$dirty}'>
+          <label>Email</label>
+          <input class='form-control' ng-model='$ctrl.userDraft.email' type="email" required name='email'>
+          <label ng-messages='usercard.email.$error'>
+            <span ng-message='required'>Field is mantodory</span>
+            <span ng-message='email'>Value have to be valid email</span>
+          </label>
+        </div>
+        <div class="form-group">
+          <label>Address</label>
+          <input class='form-control' ng-model='$ctrl.userDraft.address' type="text">
+        </div>
+        <button ng-disabled='!usercard.$valid' ng-click='$ctrl.save()' class="btn btn-default">Save</button>
+        <button ng-click='$ctrl.stopEdition()' type="submit" class="btn btn-default">Discard</button>
+      </form>
+    </div>
+  </div>
+</div>

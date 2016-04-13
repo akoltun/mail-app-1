@@ -1,0 +1,8 @@
+<div class="form-group">
+  <label>Chat:</label>
+  <select class='form-control'
+    ng-change='$ctrl.startChat($ctrl.selectedUser)'
+    ng-options="user as user.fullName for user in $ctrl.users track by user.id"
+    ng-model="$ctrl.selectedUser">
+  </select>
+</div>

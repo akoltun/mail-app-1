@@ -1,0 +1,8 @@
+<header class="application-page-header">
+  <a ui-sref="box({boxId:'inbox'})" class="application-page-header__logo"></a>
+  <a ng-if="$ctrl.loggined" ng-click="$ctrl.unauth()" class="btn btn-danger application-page-header__logout">Logout</a>
+</header>
+<section class="toolbar">
+  <application-main-menu current-page-id='$ctrl.currentPageId' menu-items='$ctrl.menuItems'></application-main-menu>
+</section>
+<ui-view></ui-view>

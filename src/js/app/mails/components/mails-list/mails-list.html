@@ -1,0 +1,31 @@
+
+<fieldset ng-disabled="!$ctrl.checkedMailsList.size">
+  <button type="button" class="btn btn-danger btn-sm" ng-click="$ctrl.delete()">Delete</button>
+  <button
+    ng-if="$ctrl.boxId == 'inbox'"
+    type="button" class="btn btn-warning btn-sm" ng-click="$ctrl.moveToSpam()">Spam!</button>
+  <button
+    ng-if="$ctrl.boxId == 'spam'"
+    type="button" class="btn btn-warning btn-sm" ng-click="$ctrl.moveFromSpam()">Not spam</button>
+  <button
+    ng-if="$ctrl.boxId == 'bin'"
+    type="button" class="btn btn-warning btn-sm" ng-click="$ctrl.restoreFromBin()">Restore</button>
+</fieldset>
+<br>
+<table class="table table-hover">
+  <tbody>
+    <tr ng-repeat='mail in $ctrl.mailList' ng-click="$ctrl.viewEmail(mail)">
+      <td>
+        <label ng-click="$event.stopPropagation();">
+          <input ng-change="$ctrl.onCheckboxChange(mail,checked)"
+                 ng-model="checked"
+                 type="checkbox">
+        </label>
+        <mails-star mail="mail" ng-click="$event.stopPropagation();"></mails-star>
+      </td>
+      <td>{{mail.email}}</td>
+      <td>{{mail.subject}}</td>
+      <td>{{mail.date | date: 'd LLLL'}}</td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,7 @@
+<bootstrap-dropdown class="application-main-menu" menu-title="MailApp">
+  <li ng-repeat='menuItem in $ctrl.menuItems' ng-class="{'active': $ctrl.isSelected(menuItem)}">
+    <a class="btn btn-link" ui-sref="{{menuItem.href}}" href="#">
+      {{menuItem.title}}
+    </a>
+  </li>
+</bootstrap-dropdown>

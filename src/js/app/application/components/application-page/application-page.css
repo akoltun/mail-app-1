@@ -1,0 +1,61 @@
+.application-page-header {
+    display: -webkit-flex;
+    display: flex;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    white-space: nowrap;
+    background: #f1f1f1;
+    font: 13px/27px Arial, sans-serif;
+    position: relative;
+    height: 60px;
+    width: 100%;
+    color: #000;
+    align-items: center;
+}
+
+.application-page-header__logo {
+    width: 127px;
+    height: 36px;
+    background: url("logo.png") no-repeat;
+    background-size: contain;
+    font-size: 25px;
+    line-height: 58px;
+    vertical-align: middle;
+    overflow: hidden;
+    position: relative;
+    z-index: 987;
+    margin-left: 15px;
+    margin-right: 0 !important;
+    display: inline-block;
+    -webkit-flex: 0 0 auto;
+    flex: 0 0 auto;
+    color: #EA4335;
+}
+
+.application-page-header__logout{
+    position: absolute;
+    right: 20px;
+    top: 10px;
+}
+
+.application-page-header__logo:hover, .application-page-header__logo:active, .application-page-header__logo:focus {
+    text-decoration: none;
+    color: #EA4335;
+}
+
+.application-page-header__logo-second-word {
+    color: #4285F4;
+}
+
+
+.toolbar {
+    margin-top: 4px;
+    margin-bottom: 5px;
+    margin-left: -400px;
+    padding: 0 30px 9px 400px;
+    position: relative;
+    white-space: nowrap;
+    z-index: 2;
+    background: none;
+    border-bottom: 1px solid #e5e5e5;
+}

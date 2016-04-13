@@ -1,0 +1,11 @@
+<div class='pre-scrollable panel panel-default chat-conversation' chat-on-update-scroll>
+  <div ng-repeat='message in $ctrl.messages | orderBy : message.date : true'>
+    <div ng-if="message.type == 'inbox'" class="text-danger">&nbsp;Me:</div>
+    <div ng-if="message.type == 'sent'" class="text-danger text-right">&nbsp;{{$ctrl.selectedUserName}}:</div>
+    <div ng-class="{'text-right' : message.type == 'sent'}"
+         class='text-primary'>
+      &nbsp;{{message.date | date: 'dd/MM/yyyy, HH:mm'}}
+    </div>
+    <div class="well well-sm">{{message.text}}</div>
+  </div>
+</div>

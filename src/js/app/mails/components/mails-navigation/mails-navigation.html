@@ -1,0 +1,7 @@
+<button class="btn btn-block btn-warning" ui-sref="compose">Compose</button>
+<br>
+<ul class="nav nav-pills nav-stacked">
+  <li ng-repeat='box in $ctrl.boxes' ng-class="{'active': box.id == $ctrl.getSelectedBoxId()}">
+    <a ui-sref="box({boxId: box.id})">{{box.title}}</a>
+  </li>
+</ul>

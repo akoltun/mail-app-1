@@ -1,0 +1,14 @@
+<div class="panel panel-default panel-info">
+  <button class="close chat-root-close" ng-click="$ctrl.endChat()" ng-if="$ctrl.chatIsEnabled">
+    <span>×</span>
+  </button>
+  <div class="panel-body">
+    <chat-interlocutor-selector users="$ctrl.users"
+                                selected-user="$ctrl.selectedUser">
+    </chat-interlocutor-selector>
+    <chat-conversation selected-user-name="{{$ctrl.selectedUser.fullName}}"
+                       messages="$ctrl.messages"
+                       ng-if='$ctrl.selectedUser'></chat-conversation>
+    <chat-controls selected-user="$ctrl.selectedUser" ng-if='$ctrl.selectedUser'></chat-controls>
+  </div>
+</div>
