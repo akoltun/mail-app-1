@@ -21,8 +21,9 @@ class Controller {
     if(this.mailId){
       this._MailsService.remove(this.saveDMailDraft);
       this._$state.go('box', {boxId: 'drafts'});
+    }else{
+      this._$state.go('box', {boxId: 'inbox'});
     }
-    this._$state.go('box', {boxId: 'inbox'});
   }
 
   saveDraft() {
