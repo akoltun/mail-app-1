@@ -20,6 +20,7 @@ class Controller {
   discard() {
     if(this.mailId){
       this._MailsService.remove(this.saveDMailDraft);
+      this._$state.go('box', {boxId: 'drafts'});
     }
     this._$state.go('box', {boxId: 'inbox'});
   }
