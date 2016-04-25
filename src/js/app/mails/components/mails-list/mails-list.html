@@ -1,4 +1,3 @@
-
 <fieldset ng-disabled="!$ctrl.checkedMailsList.size">
   <button type="button" class="btn btn-danger btn-sm" ng-click="$ctrl.delete()">Delete</button>
   <button
@@ -14,7 +13,7 @@
 <br>
 <table class="table table-hover">
   <tbody>
-    <tr ng-repeat='mail in $ctrl.mailList' ng-click="$ctrl.viewEmail(mail)">
+    <tr ng-repeat='mail in $ctrl.mailList  | orderBy : mail.date : true' ng-click="$ctrl.viewEmail(mail)">
       <td>
         <label ng-click="$event.stopPropagation();">
           <input ng-change="$ctrl.onCheckboxChange(mail,checked)"
