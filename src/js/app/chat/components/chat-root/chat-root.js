@@ -30,6 +30,7 @@ class Controller {
   }
 
   setInterlocutor(user){
+    this.messages = [];
     this.selectedUser = user;
   }
 
